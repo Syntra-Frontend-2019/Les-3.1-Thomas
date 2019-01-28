@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Oefening les 3: Strings</title>
+</head>
+<body>
+    <textarea name="" id="tekstInvoer" cols="30" rows="10" onkeyup="berekenen();">Syntra is wel echt tof, seg. Man man man.</textarea> 
+    <p>aantal letters: <span id="aantalLettersSpan"></span></p>
+    <p>aantal woorden: <span id="aantalWoordenSpan"></span></p>
+    <p>laatste woord: <span id="laatsteWoordSpan"></span></p>
+    <p>'Syntra' komt voor: <span id="syntraSpan"></span></p>
+    <p>
+    <button onclick="toUpperCase();">To Uppercase</button>
+    <button onclick="toLowerCase();">To Lowercase</button>
+    </p>
+
+    <script>
+        var tekstInput = document.querySelector("#tekstInvoer");
+        var tekst = tekstInput.value; 
+
+        function berekenen(){
+            var aantalLetters = tekst.length;
+            aantalLettersSpan.innerHTML = aantalLetters;
+
+            var woorden = tekst.split(" ");
+            var aantalWoorden = woorden.length;
+            aantalWoordenSpan.innerHTML = aantalWoorden;
+
+            var laatsteWoord = woorden[woorden.length-1];
+            laatsteWoordSpan.innerHTML = laatsteWoord;
+
+            if (woorden.includes("Syntra")){
+                var syntra = "Correct";
+            } else {
+                var syntra = "Fout";
+            }
+            syntraSpan.innerHTML = syntra;
+        }
+    
+        function toUpperCase(){
+            tekstInvoer.innerHTML = tekst.toUpperCase();
+        }
+        function toLowerCase(){
+            tekstInvoer.innerHTML = tekst.toLowerCase();
+        }
+    </script>
+
+</body>
+</html>
